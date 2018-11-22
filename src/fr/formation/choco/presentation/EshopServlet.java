@@ -1,6 +1,7 @@
 package fr.formation.choco.presentation;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
+
+import fr.formation.choco.metier.ChocoService;
+import fr.formation.choco.metier.ChocoType;
 
 public class EshopServlet extends HttpServlet {
 	
@@ -21,6 +25,9 @@ public class EshopServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		// Accès service -> persistence -> données.
+		List<ChocoType> list = ChocoService.getInstance().getData().getChocoTypes();
+		req.setAttribute("chocoTypes", list);
 		// Le RequestDispatcher et le seul objet permettant d'utiliser une page
 		// JSP : Compiler et éxécuter le code Java puis transformer le tout en
 		// HTML/CSS.

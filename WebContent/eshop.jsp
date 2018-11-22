@@ -52,11 +52,9 @@
 				<label for="choco">Type de chocolats</label>
 				<select id="choco" name="choco">
 					<option label="----" value="" />
-					<option label="Noir 70%" value="black-70" />
-					<option label="Noir 88%" value="black-88" />
-					<option label="Noir 90%" value="black-90" />
-					<option label="Blanc" value="white" />
-					<option label="Lait" value="milk" />
+					<c:forEach var="chocoType" items="${chocoTypes}">
+						<option label="${chocoType.label}" value="${chocoType.value}" />
+					</c:forEach>
 				</select>
 			</div>
 			<button>Commander</button>
