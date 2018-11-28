@@ -8,7 +8,7 @@ public class ChocoService {
 	 * Déclaration d'un singleton : instance unique.
 	 */
 	private static final ChocoService INSTANCE = new ChocoService();
-	
+
 	/**
 	 * Accès publique à l'instance unique de ChocoService.
 	 * 
@@ -17,9 +17,9 @@ public class ChocoService {
 	public static ChocoService getInstance() {
 		return ChocoService.INSTANCE;
 	}
-	
+
 	private ChocoData data;
-	
+
 	public ChocoService() {
 		this.data = new ChocoData();
 		this.data.loadTestData();
@@ -28,5 +28,4 @@ public class ChocoService {
 	public ChocoData getData() {
 		return data;
 	}
-	
 }
