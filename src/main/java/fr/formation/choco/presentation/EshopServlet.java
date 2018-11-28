@@ -26,7 +26,7 @@ public class EshopServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		// Accès service -> persistence -> données.
-		List<ChocoType> list = ChocoService.getInstance().getData().getChocoTypes();
+		List<ChocoType> list = ChocoService.getInstance().getChocoTypes();
 		req.setAttribute("chocoTypes", list);
 		// Le RequestDispatcher et le seul objet permettant d'utiliser une page
 		// JSP : Compiler et éxécuter le code Java puis transformer le tout en

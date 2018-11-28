@@ -1,6 +1,8 @@
 package fr.formation.choco.metier;
 
-import fr.formation.choco.persistance.ChocoData;
+import java.util.List;
+
+import fr.formation.choco.persistance.ChocoTypeDao;
 
 public class ChocoService {
 
@@ -18,14 +20,13 @@ public class ChocoService {
 		return ChocoService.INSTANCE;
 	}
 
-	private ChocoData data;
+	private ChocoTypeDao dao;
 
 	public ChocoService() {
-		this.data = new ChocoData();
-		this.data.loadTestData();
+		this.dao = new ChocoTypeDao();
 	}
 
-	public ChocoData getData() {
-		return data;
+	public List<ChocoType> getChocoTypes() {
+		return this.dao.readAll();
 	}
 }
