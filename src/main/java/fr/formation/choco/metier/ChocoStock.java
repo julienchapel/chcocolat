@@ -35,4 +35,9 @@ public class ChocoStock {
 		this.stock = stock;
 	}
 	
+	@Override
+	public String toString() {
+		return this.id + "=" + this.stock;
+	}
+	
 }

@@ -8,6 +8,20 @@
 	<display-name>Sexy Chocolaterie</display-name>
 	
 	<servlet>
+		<servlet-name>Mes services Web Jersey</servlet-name>
+		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+		<init-param>
+			<param-name>com.sun.jersey.config.property.packages</param-name>
+			<param-value>fr.formation.choco.presentation.rest</param-value>
+		</init-param>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Mes services Web Jersey</servlet-name>
+		<url-pattern>/webservices/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>OriginsServlet</servlet-name>
 		<servlet-class>fr.formation.choco.presentation.OriginsServlet</servlet-class>
 	</servlet>
