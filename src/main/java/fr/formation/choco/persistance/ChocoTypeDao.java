@@ -10,7 +10,7 @@ import org.apache.log4j.Logger;
 import fr.formation.choco.metier.ChocoType;
 
 /**
- * Gestion de toutes les requêtes SQL la table 'choco_type'.
+ * Gestion de toutes les requêtes SQL la table 'chocotype'.
  * 
  * @author Adminl
  *
@@ -30,6 +30,7 @@ public class ChocoTypeDao extends AbstractDao<ChocoType> {
 		TypedQuery<ChocoType> query = this.em
 				.createQuery(JpqlQueries.SELECT_ALL_CHOCOTYPE, ChocoType.class);
 		types.addAll(query.getResultList());
+		LOGGER.debug(types.size() + " types de chocolats chargé depuis la BDD.");
 		return types;
 	}
 

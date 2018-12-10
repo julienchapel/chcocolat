@@ -9,5 +9,7 @@ package fr.formation.choco.persistance;
  */
 public class JpqlQueries {
 	
-	public static final String SELECT_ALL_CHOCOTYPE = "SELECT c FROM ChocoType c";
+	public static final String SELECT_ALL_CHOCOTYPE = "SELECT ct FROM ChocoType ct";
+	
+	public static final String SELECT_ALL_CHOCOSTOCK = "SELECT cs FROM ChocoStock cs";
 }
