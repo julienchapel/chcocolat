@@ -1,15 +1,29 @@
 package fr.formation.choco.metier;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Classe qui représente un type de chocolat qu'il est possible de commander
  * dans la boutique.
  */
+@Entity
+@Table(name="chocotype")
 public class ChocoType {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column
 	private Integer id;
 
+	@Column
 	private String label;
 
+	@Column
 	private String value;
 
 	public ChocoType() {
