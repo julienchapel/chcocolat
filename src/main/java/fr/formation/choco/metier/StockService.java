@@ -22,4 +22,8 @@ public class StockService {
 	public List<ChocoStock> getChocoStocks() {
 		return this.dao.readAll();
 	}
+
+	public ChocoStock getChocoStock(Integer id) {
+		return this.dao.read(id);
+	}
 }
