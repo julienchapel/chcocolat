@@ -12,12 +12,15 @@ public class StockWebService {
 
 	@GET
 	public Response list() {
-		return Response.ok(StockService.getInstance().getChocoStocks().toString()).build();
+		return Response
+				.ok(StockService.getInstance().getChocoStocks().toString())
+				.build();
 	}
-	
+
 	@GET
 	@Path("/{id}")
 	public Response read(@PathParam("id") Integer id) {
-		return Response.ok(StockService.getInstance().getChocoStock(id).toString()).build();
+		return Response.ok(StockService.getInstance().getChocoStock(id)
+				.getStock().toString()).build();
 	}
 }

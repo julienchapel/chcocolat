@@ -1,0 +1,12 @@
+#stockinfo {
+	display: inline-block;
+}
+
+span.stock.ok {
+	color: limegreen;
+}
+
+span.stock.ko {
+	color: red;
+	font-weight: bold;
+}
