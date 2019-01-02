@@ -2,22 +2,16 @@ package fr.formation.choco.metier;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import fr.formation.choco.persistance.ChocoStockDao;
 
-
+@Service
 public class StockService {
 
-	private static final StockService INSTANCE = new StockService();
-
-	public static StockService getInstance() {
-		return StockService.INSTANCE;
-	}
-
+	@Autowired
 	private ChocoStockDao dao;
-
-	public StockService() {
-		this.dao = new ChocoStockDao();
-	}
 
 	public List<ChocoStock> getChocoStocks() {
 		return this.dao.readAll();

@@ -1,5 +1,6 @@
 package fr.formation.choco.persistance;
 
+import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 
 /**
@@ -15,10 +16,11 @@ public abstract class AbstractDao<T> implements Dao<T> {
 	protected EntityManager em;
 
 	/**
-	 * Constructeur par défaut qui récupère une instance d'EntityManager par la
-	 * classe MysqlConnection.
+	 * Constructeur par aspect (grâce à Spring beans) qui récupère une instance
+	 * d'EntityManager par la classe MysqlConnection.
 	 */
-	public AbstractDao() {
+	@PostConstruct
+	public void init() {
 		this.em = MySqlConnection.getInstance().getEntityManager();
 	}
 

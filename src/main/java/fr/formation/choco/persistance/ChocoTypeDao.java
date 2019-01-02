@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.TypedQuery;
 
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
 
 import fr.formation.choco.metier.ChocoType;
 
@@ -15,6 +16,7 @@ import fr.formation.choco.metier.ChocoType;
  * @author Adminl
  *
  */
+@Component
 public class ChocoTypeDao extends AbstractDao<ChocoType> {
 
 	private static final Logger LOGGER = Logger.getLogger(ChocoTypeDao.class);
