@@ -74,6 +74,7 @@
 
 	<c:if test="${ not empty message }">
 		<div>${message}</div>
+		<a href="index.html">Retour à l'accueil</a>
 	</c:if>
 </body>
 </html>
