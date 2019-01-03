@@ -6,6 +6,7 @@
 <!-- Import de la librarie JSTL core -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- Entête HTML 5 standard -->
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,34 +44,56 @@
 			on est de nouveau en HTML -->
 	</div>
 
-	<!-- Si l'attribut de requête 'message' est vide ou null, alors on affiche le 
-		contenu de cette balise if. -->
-	<c:if test="${ empty message }">
-		<h2>Choisissez vos chocolats :</h2>
-		<form method="post" action="">
+	<h1>Lise des chocolats</h1><br/>
+	<table style=" border-collapse: collapse;">
+<thead>
+   <tr>
+       <th style="border: 1px solid black;">id</th>
+       <th style="border: 1px solid black;">label</th>
+       <th style="border: 1px solid black;">value</th>
+       <th style="border: 1px solid black;">action</th>
+   </tr>
+</thead>
+   <c:forEach var="chocoType" items="${chocoTypes}">
+   <tr>
+   
+					  
+       <td style="border: 1px solid black;">${chocoType.id}</td>
+       <td style="border: 1px solid black;">${chocoType.label}</td>
+       <td style="border: 1px solid black;">${chocoType.value}</td>
+       <td>
+       <a href="delete.html?id=${chocoType.id}">
+       <button class="btn btn-success">Supprimer</button>
+       </a>
+       <a href="eshop.html?id=${chocoType.id}">
+       <button class="btn btn-success">Modifier</button>
+		</a>
+		</td>
+   </tr>
+   </c:forEach>
+</table>
+ 
+
+		<h2>${ isEdit ? "Créer un Chocolat" : "Modifier un chocolat" }:</h2>
+		<form:form modelAttribute="chocoType" method="post" action="">
 			<div>
-				<label for="name">Nom</label> <input id="name" name="name">
+				<label for="label">label</label> 
+				<form:input id="label" path="label" required="required"/>
 			</div>
 			<div>
-				<label for="address">Adresse</label> <input id="address"
-					name="address">
+				<label for="value">value</label> 
+				<form:input id="value" path="value" required="required"/>
 			</div>
-			<div>
-				<label for="choco">Type de chocolats</label>
-				<select id="choco" name="choco">
-					<option value="">----</option>
-					<c:forEach var="chocoType" items="${chocoTypes}">
-						<option id="${chocoType.id}"
-							value="${chocoType.value}">${chocoType.label}</option>
-					</c:forEach>
-				</select>
+		
+	
+		
 				<div id="stockinfo">
 				
 				</div>
-			</div>
+		
 			<button>Commander</button>
-		</form>
-	</c:if>
+		</form:form>
+
 
 	<c:if test="${ not empty message }">
 		<div>${message}</div>

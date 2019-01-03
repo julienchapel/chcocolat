@@ -36,4 +36,7 @@ public class ChocoTypeDao extends AbstractDao<ChocoType> {
 		return types;
 	}
 
+	
+	
+
 }
